@@ -66,6 +66,8 @@
 
 									<option value="Assistant Superintendent of Corps II" {{ $redeployment->rank == 'Assistant Superintendent of Corps II' ? 'selected' : '' }}>Assistant Superintendent of Corps II</option>
 
+									<option value="Chief Inspector of Corps" {{ $redeployment->rank == 'Chief Inspector of Corps' ? 'selected' : '' }}>Chief Inspector of Corps</option>
+
 									<option value="Deputy Chief Inspector of Corps" {{ $redeployment->rank == 'Deputy Chief Inspector of Corps' ? 'selected' : '' }}>Deputy Chief Inspector of Corps</option>
 
 									<option value="Assistant Chief Inspector of Corps" {{ $redeployment->rank == 'Assistant Chief Inspector of Corps' ? 'selected' : '' }}>Assistant Chief Inspector of Corps</option>

@@ -8,7 +8,6 @@
 	<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/axios.min.js')}}"></script>
-    <script src="{{asset('js/wnoty.js')}}"></script>
 	<style>
 		:root {
 			--primary-bg-dark: #164f6b; 
@@ -29,12 +28,13 @@
 			--button-secondary: #8d1003;
 		}
 	</style>
+	<link rel="stylesheet" href="{{asset('css/material-icons.css')}}">
 	{!! MaterializeCSS::include_js() !!}
     {!! MaterializeCSS::include_css() !!}
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-	<div class="app">
+	<div class="app" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
 		<div class="card form_wrap">
 			<div class="heading">
 				<img src="{{ asset('storage/pdfLogo.png') }}" alt="logo" width="100px" height="100px">

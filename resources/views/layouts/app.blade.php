@@ -12,7 +12,7 @@
     <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.min.js')}}"></script>
     <script src="{{asset('js/axios.min.js')}}"></script>
-    <script src="{{asset('js/wnoty.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/material-icons.css')}}">
     {!! MaterializeCSS::include_js() !!}
     {!! MaterializeCSS::include_css() !!}
     <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
@@ -37,13 +37,12 @@
             --button-secondary: #d63726;
         }
     </style>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="{{asset('css/wnoty.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/datatable/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/datatable/buttons.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    <div id="app" class="app" style="justify-content:flex-start;">
+    <div id="app" class="app">
         {{-- NAV MENU --}}
         <nav>
             <div class="nav-wrapper">
@@ -76,39 +75,6 @@
                 @csrf
             </form>
         </nav>
-        @if (session()->has('error'))
-                <script>
-                $(document).ready(function () {
-                        $.wnoty({
-                        type: 'error',
-                        message: '{{session('error')}}',
-                        autohideDelay: 5000
-                        });
-                    });
-                </script>
-            @endif
-            @if (session()->has('info'))
-                <script>
-                $(document).ready(function () {
-                        $.wnoty({
-                        type: 'info',
-                        message: '{{session('info')}}',
-                        autohideDelay: 10000
-                        });
-                    });
-                </script>
-            @endif
-            @if (session()->has('success'))
-                <script>
-                $(document).ready(function () {
-                        $.wnoty({
-                        type: 'success',
-                        message: '{{session('success')}}',
-                        autohideDelay: 5000
-                        });
-                    });
-                </script>
-            @endif
         {{-- CONTENT AREA    --}}
         @yield('content')
     </div>

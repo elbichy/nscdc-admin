@@ -31,7 +31,7 @@ class DashboardController extends Controller
 
     public function today()
     {
-        $redeployments = Redeployment::whereDate('created_at', Carbon::today())->get();
+        $redeployments = Redeployment::whereDate('created_at', Carbon::today())->orderBy('created_at', 'DESC')->get();
         return DataTables::of($redeployments)
                 ->editColumn('created_at', function ($redeployment) {
                     return $redeployment->created_at->toFormattedDateString();

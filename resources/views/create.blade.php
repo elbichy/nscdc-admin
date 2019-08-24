@@ -59,6 +59,7 @@
 									<option value="Deputy Superintendent of Corps">Deputy Superintendent of Corps</option>
 									<option value="Assistant Superintendent of Corps I">Assistant Superintendent of Corps I</option>
 									<option value="Assistant Superintendent of Corps II">Assistant Superintendent of Corps II</option>
+									<option value="Chief Inspector of Corps">Chief Inspector of Corps</option>
 									<option value="Deputy Chief Inspector of Corps">Deputy Chief Inspector of Corps</option>
 									<option value="Assistant Chief Inspector of Corps">Assistant Chief Inspector of Corps</option>
 									<option value="Principal Inspector of Corps I">Principal Inspector of Corps I</option>
@@ -108,6 +109,7 @@
 								@endif
 								<label for="date">Date</label>
 							</div>
+							
 							<div class="input-field col s12 l4">
 								<button class="submit btn waves-effect waves-light right" type="submit"><i class="material-icons right">send</i>ADD RECORD</button>
 							</div>
@@ -127,7 +129,12 @@
 		$(document).ready(function(){
 			$('.datepicker').datepicker({
 				defaultDate: new Date(),
+				format: 'yyyy-mm-dd',
             	setDefaultDate: true
+			});
+			$('.timepicker').timepicker({
+				defaultTime: 'now'
+				
 			});
 			$('#create_form').submit(function (e) { 
 				$('.submit').prop('disabled', true).html('ADDING RECORD...');

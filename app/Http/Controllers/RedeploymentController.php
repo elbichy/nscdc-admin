@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DateTime;
 use App\Redeployment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -63,6 +63,12 @@ class RedeploymentController extends Controller
             'date' => 'required'
         ]);
         
+        if($request->date == Carbon::today()->format('Y-m-d')){
+            $date = Carbon::now();
+        }else{
+            $date = $request->date;
+        }
+
         $ref_number = Str::random(12);
         $insert = Redeployment::create([
             'type' => $request->type,
@@ -73,11 +79,11 @@ class RedeploymentController extends Controller
             'rank' => $request->rank,
             'from' => $request->from,
             'to' => $request->to,
-            'created_at' => Carbon::create($request->date),
+            'created_at' => $date,
         ]);
 
         if($insert){
-            Alert::success('Redeployment created successfully!', 'Success!')->autoclose(3500);
+            Alert::success('Redeployment created successfully!', 'Success!')->autoclose(2500);
             return redirect()->route('dashboard');
         }
     }
@@ -121,7 +127,7 @@ class RedeploymentController extends Controller
             'to' => $request->to,
             'updated_at' => Carbon::create($request->date),
         ]);
-        Alert::success('Redeployment updated successfully!', 'Success!')->autoclose(3500);
+        Alert::success('Redeployment updated successfully!', 'Success!')->autoclose(2500);
         return redirect()->route('redeployment_all');
     }
 
@@ -130,7 +136,7 @@ class RedeploymentController extends Controller
     public function destroy(Redeployment $redeployment)
     {
         $redeployment->delete();
-        Alert::success('Redeployment deleted successfully!', 'Success!')->autoclose(3500);
+        Alert::success('Redeployment deleted successfully!', 'Success!')->autoclose(2500);
         return redirect()->route('redeployment_all');
     }
 
